@@ -47,7 +47,7 @@ async def stop(_, message: Message):
 
 @Client.on_message(command(["skip", "next", "sjm"]) & other_filters)
 @errors
-@authorized_users_only
+@everyone
 async def skip(_, message: Message):
     await message.delete()
     global que
