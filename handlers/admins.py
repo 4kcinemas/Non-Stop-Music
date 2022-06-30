@@ -23,7 +23,6 @@ async def pause(_, message: Message):
 
 @Client.on_message(command(["resume"]) & other_filters)
 @errors
-@authorized_users_only
 async def resume(_, message: Message):
     await message.delete()
     await callsmusic.pytgcalls.resume_stream(message.chat.id)
