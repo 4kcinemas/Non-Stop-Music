@@ -15,7 +15,6 @@ ACTV_CALLS = []
 
 @Client.on_message(command(["pause", "rukja"]) & other_filters)
 @errors
-@everyone
 async def pause(_, message: Message):
     await message.delete()
     await callsmusic.pytgcalls.pause_stream(message.chat.id)
@@ -33,7 +32,6 @@ async def resume(_, message: Message):
 
 @Client.on_message(command(["end", " stop"]) & other_filters)
 @errors
-@authorized_users_only
 async def stop(_, message: Message):
     try:
         callsmusic.queues.clear(message.chat.id)
@@ -47,7 +45,6 @@ async def stop(_, message: Message):
 
 @Client.on_message(command(["skip", "next", "sjm"]) & other_filters)
 @errors
-@everyone
 async def skip(_, message: Message):
     await message.delete()
     global que
