@@ -15,7 +15,7 @@ ACTV_CALLS = []
 
 @Client.on_message(command(["pause", "rukja"]) & other_filters)
 @errors
-@authorized_users_only
+@everyone
 async def pause(_, message: Message):
     await message.delete()
     await callsmusic.pytgcalls.pause_stream(message.chat.id)
